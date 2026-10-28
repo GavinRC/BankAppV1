@@ -9,14 +9,15 @@
 class BankAccount {
     std::string m_accHolder;
     std::string m_accNum;
-    double m_balance = 0;
+protected:
+    double m_balance;
 
-    public:
-    BankAccount(const std::string &accHolder, const std::string &accNum, const double &balance);
-    ~BankAccount(); // Default Constructor
-    void deposit(double amount);
-    bool withdraw(double amount);
-    void display() const;
+public:
+    BankAccount(const std::string &accHolder, const std::string &accNum, double balance);
+    virtual ~BankAccount(); // Default Constructor
+    virtual void deposit(double amount);
+    virtual bool withdraw(double amount)=0;
+    virtual void display();
 };
 
 
